@@ -4,7 +4,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import Lottie from "react-lottie";
 import animationData from "../../assets/lottie/register.json";
 import setTitle from "../../hook/setTitle";
-import { isValidEmail, isValidPassword } from "../../Utils/vaildation";
+import { isValidEmail, isValidPassword } from "../Validation/validation";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { FadeLoader } from "react-spinners";
@@ -138,15 +138,15 @@ const Register = () => {
 
             {isLoading || (
                 <div className="hero min-h-screen bg-base-100">
-                    <div className="hero-content flex-col lg:flex-row-reverse gap-0 md:gap-16">
-                        <div className="text-center">
+                    <div className="hero-content flex-col lg:flex-row-reverse justify-center ">{/* gap-0 md:gap-16 */}
+                        <div className="text-center lg:text-left">
                             <div>
-                                <h1 className="text-5xl font-bold text-[#00897b]">
+                                <h1 className="text-5xl font-bold text-orange-500">
                                     Register now!
                                 </h1>
                                 <Lottie
-                                    options={defaultOptions}
-                                    className="w-[600px]"
+                                    options={defaultOptions} height={600} width={600}
+                                    
                                 />
                             </div>
                         </div>
@@ -221,7 +221,7 @@ const Register = () => {
                                     Already have an account? Please{" "}
                                     <Link
                                         to={"/login"}
-                                        className="text-indigo-500"
+                                        className="text-orange-600 font-bold"
                                     >
                                         Login here
                                     </Link>
@@ -243,7 +243,7 @@ const Register = () => {
                                 </div>
                                 <div className="form-control mt-2">
                                     <input
-                                        className="btn bg-[#00897b] text-white hover:bg-[#0f4741]"
+                                        className="btn bg-orange-600 text-white hover:bg-orange-700"
                                         type="submit"
                                         value="Sign Up"
                                     />
