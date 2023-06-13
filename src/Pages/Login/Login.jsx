@@ -64,7 +64,7 @@ const Login = () => {
                 <div className="hero-content flex-col lg:flex-row-reverse justify-center ">
                     <div className="text-center lg:text-left">
                         <div>
-                            <h1 className="text-5xl font-bold text-cyan-600">
+                            <h1 className="text-5xl font-bold text-orange-500">
                                 Login now!
                             </h1>
                             <Lottie options={defaultOptions} height={600} width={600} />
@@ -112,13 +112,13 @@ const Login = () => {
                             </div>
                             <div className="form-control mt-2">
                                 <button
-                                    className="btn btn-accent text-white hover:bg-red-600"
+                                    className="btn bg-orange-600 text-white hover:bg-orange-700"
                                     type="submit"
                                 >
                                     Login
                                 </button>
                                 <button
-                                    className="btn  bg-sky-500 mt-4 hover:bg-red-600 border-none"
+                                    className="btn  bg-sky-500 mt-4 hover:bg-sky-600 border-none text-white"
                                     onClick={handleGoogleSignIn}
                                 >
                                     Login with Google
@@ -129,7 +129,7 @@ const Login = () => {
                                 New here? Please{" "}
                                 <Link
                                     to={"/register"}
-                                    className="text-cyan-500 font-semibold"
+                                    className="text-orange-600 font-semibold"
                                 >
                                     Register here
                                 </Link>
