@@ -119,7 +119,7 @@ const Reviews = () => {
                                         >
                                             <path d="M13 14.725c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275zm-13 0c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275z" />
                                         </svg>
-                                        I can't say enough good things about Ornaldo Sports Academy! As a former player, quality training equipment for learner is my top priority, and Ornaldo sports academy ensures that all their equipment meet the highest quality standards. I feel confident to recommend this academy for the learner, knowing that they prioritize the well-being of children. Their coaching service is outstanding, and they go above and beyond to assist and guide learners. Ornaldo sports academy is the best sports learning academy in town!
+                                        I can not say enough good things about Ornaldo Sports Academy! As a former player, quality training equipment for learner is my top priority, and Ornaldo sports academy ensures that all their equipment meet the highest quality standards. I feel confident to recommend this academy for the learner, knowing that they prioritize the well-being of children. Their coaching service is outstanding, and they go above and beyond to assist and guide learners. Ornaldo sports academy is the best sports learning academy in town!
                                     </p>
                                 </div>
                             </div>
