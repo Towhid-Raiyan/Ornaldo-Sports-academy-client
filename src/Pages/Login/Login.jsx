@@ -3,7 +3,7 @@ import Lottie from 'react-lottie';
 import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import animationData   from "../../assets/lottie/register.json";
-import setTitle from '../../Title/setTitle';
+import setTitle from '../../hook/setTitle';
 
 
 const Login = () => {

@@ -74,7 +74,7 @@ const Register = () => {
                             role: role,
                         };
                         console.log(saveUser);
-                        fetch("https://elite-sports-academy-server-ten.vercel.app/users", {
+                        fetch("", {
                             method: "POST",
                             headers: {
                                 "content-type": "application/json",
