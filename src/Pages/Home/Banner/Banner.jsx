@@ -9,7 +9,7 @@ import pic4 from '../../../assets/banner_picture/Untitled design (9).png'
 
 const Banner = () => {
     return (
-        <Carousel className=''>
+        <Carousel>
             <div>
                 <img src={pic1} />
                 <div className="absolute rounded-xl flex items-center h-full left-0  top-0 bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]">
