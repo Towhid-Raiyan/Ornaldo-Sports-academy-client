@@ -74,7 +74,7 @@ const Register = () => {
                             role: role,
                         };
                         console.log(saveUser);
-                        fetch("", {
+                        fetch("http://localhost:5000/users", {
                             method: "POST",
                             headers: {
                                 "content-type": "application/json",
