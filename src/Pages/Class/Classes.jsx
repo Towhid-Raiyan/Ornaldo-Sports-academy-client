@@ -68,7 +68,7 @@ const Classes = () => {
 
     return (
         <div>
-            <p className="mt-12 mb-10 text-6xl font-bold text-orange-600 mx-80">
+            <p className="mt-12 mb-10 text-6xl font-bold text-orange-600 text-center">
                 <Typewriter
                     options={{
                         strings: [

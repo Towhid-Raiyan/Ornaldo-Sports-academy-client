@@ -51,7 +51,7 @@ const Instructors = () => {
         <>
 
             <div className="container mx-auto ">
-                <p className="my-12 text-6xl font-bold text-orange-600 mx-96">
+                <p className="my-12 text-6xl font-bold text-orange-600 text-center">
                     <Typewriter
                         options={{
                             strings: [
