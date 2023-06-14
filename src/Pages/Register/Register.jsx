@@ -74,7 +74,7 @@ const Register = () => {
                             role: role,
                         };
                         console.log(saveUser);
-                        fetch("http://localhost:5000/users", {
+                        fetch("https://ornaldo-sports-server.vercel.app/users", {
                             method: "POST",
                             headers: {
                                 "content-type": "application/json",

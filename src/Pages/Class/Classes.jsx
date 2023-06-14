@@ -29,7 +29,7 @@ const Classes = () => {
             };
             axiosSecure
                 .post(
-                    "http://localhost:5000/classes",
+                    "https://ornaldo-sports-server.vercel.app/classes",
                     selectedClass,
                     {
                         headers: {
@@ -53,7 +53,7 @@ const Classes = () => {
     };
     useEffect(() => {
         axios
-            .get("http://localhost:5000/classes", {
+            .get("https://ornaldo-sports-server.vercel.app/classes", {
                 headers: {
                     authorization: `bearer ${token}`,
                 },

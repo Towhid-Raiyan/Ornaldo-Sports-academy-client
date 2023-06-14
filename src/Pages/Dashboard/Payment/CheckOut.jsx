@@ -24,7 +24,7 @@ const CheckOut = ({ price, Class }) => {
         if (price > 0) {
             axios
                 .post(
-                    "http://localhost:5000/create-payment-intent",
+                    "https://ornaldo-sports-server.vercel.app/create-payment-intent",
                     { price }
                 )
                 .then((res) => {
@@ -92,7 +92,7 @@ const CheckOut = ({ price, Class }) => {
             };
             axios
                 .post(
-                    "http://localhost:5000/payments",
+                    "https://ornaldo-sports-server.vercel.app/payments",
                     payment,
                     {
                         headers: {

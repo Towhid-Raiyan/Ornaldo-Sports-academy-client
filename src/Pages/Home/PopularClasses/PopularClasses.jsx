@@ -9,7 +9,7 @@ const PopularClasses = () => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:5000/popularClasses")
+            .get("https://ornaldo-sports-server.vercel.app/popularClasses")
             .then((response) => {
                 setPopularClasses(response.data);
                 // console.log(response.data);

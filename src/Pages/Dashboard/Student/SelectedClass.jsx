@@ -23,7 +23,7 @@ const SelectedClass = () => {
     const fetchData = () => {
         axiosSecure
             .get(
-                `http://localhost:5000/selectedClasses/${user?.email}`
+                `https://ornaldo-sports-server.vercel.app/selectedClasses/${user?.email}`
             )
             .then((response) => {
                 const data = response.data;
@@ -41,7 +41,7 @@ const SelectedClass = () => {
         console.log(id);
         axiosSecure
             .delete(
-                `http://localhost:5000/deleteSelected/${id}`
+                `https://ornaldo-sports-server.vercel.app/deleteSelected/${id}`
             )
             .then((response) => {
                 console.log(response);

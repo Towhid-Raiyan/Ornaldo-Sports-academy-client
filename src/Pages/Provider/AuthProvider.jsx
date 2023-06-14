@@ -55,7 +55,7 @@ const AuthProvider = ({ children }) => {
 
             if (loggedUser) {
                 // write link in post
-                axios.post("http://localhost:5000/jwt", {
+                axios.post("https://ornaldo-sports-server.vercel.app/jwt", {
                     email: loggedUser.email,
                 }).then(data => {
                     localStorage.setItem('access-token',data.data.token);

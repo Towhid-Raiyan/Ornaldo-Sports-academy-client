@@ -14,7 +14,7 @@ const ManageUsers = () => {
         error,
     } = useQuery({
         queryFn: async () => {
-            const data = await axios(`http://localhost:5000/all-users`, {
+            const data = await axios(`https://ornaldo-sports-server.vercel.app/all-users`, {
                 headers: {
                     authorization: `bearer ${localStorage.getItem(
                         "access-token"
@@ -47,7 +47,7 @@ const ManageUsers = () => {
 
     const updateUserRole = (userId, role) => {
         axios
-            .patch(`http://localhost:5000/users/${userId}`, { role },{
+            .patch(`https://ornaldo-sports-server.vercel.app/users/${userId}`, { role },{
                 headers: {
                     authorization: `bearer ${token}`,
                 }

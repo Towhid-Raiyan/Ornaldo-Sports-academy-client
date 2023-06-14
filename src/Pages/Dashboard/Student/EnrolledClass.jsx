@@ -15,7 +15,7 @@ const EnrolledClass = () => {
     useEffect(() => {
         setIsLoading(true);
         axiosSecure
-            .get(`http://localhost:5000/selectedClasses/${user?.email}`)
+            .get(`https://ornaldo-sports-server.vercel.app/selectedClasses/${user?.email}`)
             .then((response) => {
                 const data = response.data;
                 // console.log(data);

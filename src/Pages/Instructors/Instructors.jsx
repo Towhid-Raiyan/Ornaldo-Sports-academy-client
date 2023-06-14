@@ -12,7 +12,7 @@ const Instructors = () => {
 
     const fetchInstructors = async () => {
         try {
-            const response = await fetch("http://localhost:5000/instructors");
+            const response = await fetch("https://ornaldo-sports-server.vercel.app/instructors");
             const data = await response.json();
             // console.log(data);
             setInstructors(data);
@@ -22,7 +22,7 @@ const Instructors = () => {
                 data.map(async (instructor) => {
                     try {
                         const classCountResponse = await fetch(
-                            `http://localhost:5000/classes/count/${encodeURIComponent(
+                            `https://ornaldo-sports-server.vercel.app/classes/count/${encodeURIComponent(
                                 instructor.name
                             )}`
                         );

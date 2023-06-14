@@ -19,7 +19,7 @@ const PaymentHistory = () => {
     };
     useEffect(() => {
         fetch(
-            `http://localhost:5000/payment-history/${user?.email}`,
+            `https://ornaldo-sports-server.vercel.app/payment-history/${user?.email}`,
             {
                 headers: {
                     authorization: `bearer ${token}`,

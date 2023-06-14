@@ -17,7 +17,7 @@ const MakePayment = () => {
     const token = localStorage.getItem("access-token");
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/pay/selectedClasses/${id}`,{
+            .get(`https://ornaldo-sports-server.vercel.app/pay/selectedClasses/${id}`,{
                 headers: {
                     authorization: `bearer ${token}`,
                     "Content-Type": "application/json",

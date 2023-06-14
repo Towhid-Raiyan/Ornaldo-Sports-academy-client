@@ -14,7 +14,7 @@ const ClassesPage = () => {
     }, [classes]);
 
     const fetchClasses = () => {
-        fetch("http://localhost:5000/all-classes", {
+        fetch("https://ornaldo-sports-server.vercel.app/all-classes", {
             method: "GET",
             headers:{
                 authorization: `bearer ${token}`,
@@ -29,7 +29,7 @@ const ClassesPage = () => {
         console.log(classId);
         try {
             await fetch(
-                `http://localhost:5000/api/classes/${classId}/approve`,
+                `https://ornaldo-sports-server.vercel.app/api/classes/${classId}/approve`,
                 {
                     headers:{
                         authorization: `bearer ${token}`,
@@ -51,7 +51,7 @@ const ClassesPage = () => {
     const handleDeny = async (classId) => {
         console.log(classId);
         try {
-            await fetch(`http://localhost:5000/api/classes/${classId}/deny`, {
+            await fetch(`https://ornaldo-sports-server.vercel.app/api/classes/${classId}/deny`, {
                 method: "PATCH",
                 headers:{
                     authorization: `bearer ${token}`,
@@ -85,7 +85,7 @@ const ClassesPage = () => {
         console.log(selectedClass, feedbackMessage);
         try {
             await fetch(
-                `http://localhost:5000/api/classes/${selectedClass}/feedback`,
+                `https://ornaldo-sports-server.vercel.app/api/classes/${selectedClass}/feedback`,
                 {
                     method: "POST",
                     headers: {

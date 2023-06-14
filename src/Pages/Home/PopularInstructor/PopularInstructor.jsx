@@ -10,7 +10,7 @@ const PopularInstructor = () => {
     useEffect(() => {
         axios
             .get(
-                "http://localhost:5000/popularInstructors"
+                "https://ornaldo-sports-server.vercel.app/popularInstructors"
             )
             .then((response) => {
                 setPopularInstructors(response.data);

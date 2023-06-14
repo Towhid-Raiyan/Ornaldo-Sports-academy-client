@@ -40,7 +40,7 @@ const AddCourse = () => {
     const saveClassToDatabase = async (newClass) => {
         try {
             await axios.post(
-                "http://localhost:5000/api/classes",
+                "https://ornaldo-sports-server.vercel.app/api/classes",
                 newClass,{
                     headers:{
                         authorization: `bearer ${token}`,
