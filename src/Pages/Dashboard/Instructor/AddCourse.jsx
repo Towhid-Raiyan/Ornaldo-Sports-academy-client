@@ -135,7 +135,7 @@ const AddCourse = () => {
                     </div>
                     <input
                         type="submit"
-                        className="btn btn-accent mt-6 w-full  text-white"
+                        className="btn bg-orange-700 hover:bg-orange-500 mt-6 w-full  text-white"
                         value="Create Class"
                     />
                 </form>
