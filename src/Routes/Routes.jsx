@@ -8,6 +8,7 @@ import ClassesPage from "../Pages/Dashboard/Admin/ClassesPage";
 import ManageUsers from "../Pages/Dashboard/Admin/ManageUser";
 import AddCourse from "../Pages/Dashboard/Instructor/AddCourse";
 import ViewCourses from "../Pages/Dashboard/Instructor/ViewCourses";
+import MakePayment from "../Pages/Dashboard/Payment/MakePayment";
 import EnrolledClass from "../Pages/Dashboard/Student/EnrolledClass";
 import SelectedClass from "../Pages/Dashboard/Student/SelectedClass";
 import StudentDashboard from "../Pages/Dashboard/Student/StudentDashboard";
@@ -67,6 +68,10 @@ export const router = createBrowserRouter([
         path: "enrolledClasses",
         element: (<StudentRoute><EnrolledClass></EnrolledClass></StudentRoute>),
       },
+      {
+        path: "payment/:id",
+        element: (<StudentRoute><MakePayment></MakePayment></StudentRoute>),
+    },
 
       //Instructor
       {
