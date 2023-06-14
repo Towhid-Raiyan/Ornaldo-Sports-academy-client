@@ -1,49 +1,201 @@
+import { useContext, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import useAdmin from "../../../hook/useAdmin";
+import useInstructor from "../../../hook/useInstructor";
+import useStudent from "../../../hook/useStudent";
+import { useEffect } from "react";
+import logo from '../../../assets/logo.png'
 
 const NavBar = () => {
-    const navOptions = <>
-        <li><a>Item 1</a></li>
-        <li tabIndex={0}>
-            <a className="justify-between">
-                Parent
-                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-            </a>
-            <ul className="p-2">
-                <li><a>Submenu 1</a></li>
-                <li><a>Submenu 2</a></li>
-            </ul>
-        </li>
-        <li><a>Item 3</a></li>
-    </>
+    const [theme, settheme] = useState("light");
+    const { name, user, logOut, photo } = useContext(AuthContext);
+    // console.log(name);
+    const handleLogout = () => {
+        logOut()
+            .then(() => {
+                toast.error("Logout Successful", { autoClose: 2000 });
+                // Swal.fire("Logout", "LogOut Successfull", "success");
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+    //
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
+    const [isStudent] = useStudent();
+    // console.log(isAdmin, isInstructor, isStudent);
+    useEffect(() => {
+        if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
+    }, [theme]);
+
+    const handleThemeSwitch = () => {
+        settheme(theme === "dark" ? "light" : "dark");
+    };
+
+    const navOptions = (
+        <>
+            <li>
+                <NavLink
+                    to="/"
+                    className={({ isActive }) => (isActive ? "active" : "")}
+                >
+                    Home
+                </NavLink>
+            </li>
+
+            <li>
+                {" "}
+                <NavLink
+                    to="/classes"
+                    className={({ isActive }) => (isActive ? "active" : "")}
+                >
+                    Classes
+                </NavLink>{" "}
+            </li>
+            <li>
+                {" "}
+                <NavLink
+                    to="/instructors"
+                    className={({ isActive }) => (isActive ? "active" : "")}
+                >
+                    Instructors
+                </NavLink>{" "}
+            </li>
+
+            {isAdmin && (
+                <li>
+                    <NavLink
+                        to="/dashboard/manageUsers"
+                        className={({ isActive }) => (isActive ? "active" : "")}
+                    >
+                        Dashboard
+                    </NavLink>
+                </li>
+            )}
+            {isInstructor && (
+                <li>
+                    <NavLink
+                        to="/dashboard/viewCourse"
+                        className={({ isActive }) => (isActive ? "active" : "")}
+                    >
+                        Dashboard
+                    </NavLink>
+                </li>
+            )}
+            {isStudent && (
+                <li>
+                    <NavLink
+                        to="/dashboard/selectedClasses"
+                        className={({ isActive }) => (isActive ? "active" : "")}
+                    >
+                        Dashboard
+                    </NavLink>
+                </li>
+            )}
+            {user ? (
+                <li>
+                    <button onClick={handleLogout}>Logout</button>
+                </li>
+            ) : (
+                <li>
+                    <NavLink
+                        to="/login"
+                        className={({ isActive }) => (isActive ? "active" : "")}
+                    >
+                        Login
+                    </NavLink>
+                </li>
+            )}
+            <li>
+                {/* TODO: implement Dark theme */}
+                <button
+                    className="btn-sm bg-orange-500 rounded-3xl text-white dark:bg-orange-500"
+                    onClick={handleThemeSwitch}
+                >
+                    {theme==="dark" ? "Light" : "Dark"}
+                </button>
+            </li>
+        </>
+    );
+
     return (
-        <div className="navbar bg-base-100">
-            <div className="navbar-start">
-                <div className="dropdown">
-                    <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                    </label>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><a>Item 1</a></li>
-                        <li>
-                            <a>Parent</a>
-                            <ul className="p-2">
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
-                            </ul>
-                        </li>
-                        <li><a>Item 3</a></li>
-                    </ul>
+        <>
+            <ToastContainer />
+
+            <div className="navbar fixed z-10 bg-opacity-60 bg-orange-500 text-white dark:bg-slate-950 max-w-screen-xl">
+                <div className="navbar-start">
+                    <div className="dropdown">
+                        <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-5 w-5"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M4 6h16M4 12h8m-8 6h16"
+                                />
+                            </svg>
+                        </label>
+                        <ul
+                            tabIndex={0}
+                            className="menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-52 bg-black bg-opacity-60"
+                        >
+                            {navOptions}
+                        </ul>
+                    </div>
+                    <div className="flex items-center gap-4">
+                        <Link to={"/"}>
+                            <div className="w-28 rounded-full ms-6">
+                                <img src={logo} className="w-28 h-10" />
+                            </div>
+                        </Link>
+                        
+                        
+                    </div>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <div className="navbar-center hidden lg:flex">
+                    <ul className="flex gap-10 px-1">{navOptions}</ul>
+                </div>
+                <div className="invisible lg:navbar-end  lg:visible me-10 ">
+                    <div className="avatar placeholder rounded-full ring ring-danger ring-offset-base-100 ring-offset-2">
+                        <div className="bg-neutral-focus text-neutral-content rounded-full w-12">
+                            {user ? (
+                                <img id="yes-element" src={photo} alt={name} />
+                            ) : (
+                                <span id="no-element">X</span>
+                            )}
+
+                            {/* <span id="no-element">X</span> */}
+                        </div>
+                    </div>
+                    <Tooltip
+                        place="right"
+                        anchorSelect="#yes-element"
+                        content={name}
+                    />
+                    <Tooltip
+                        place="right"
+                        anchorSelect="#no-element"
+                        content="No User"
+                    />
+                </div>
             </div>
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    {navOptions}
-                </ul>
-            </div>
-            <div className="navbar-end">
-                <a className="btn">Button</a>
-            </div>
-        </div>
+        </>
     );
 };
 
