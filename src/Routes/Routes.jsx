@@ -2,6 +2,7 @@ import {
     createBrowserRouter,
   } from "react-router-dom";
 import Main from "../Layouts/Main";
+import Classes from "../Pages/Class/Classes";
 import Errorpage from "../Pages/Errorpage/Errorpage";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -24,6 +25,10 @@ import Register from "../Pages/Register/Register";
         {
           path: '/register',
           element: <Register></Register>
+        },
+        {
+          path: '/classes',
+          element: <Classes></Classes>
         }
       ]
     },

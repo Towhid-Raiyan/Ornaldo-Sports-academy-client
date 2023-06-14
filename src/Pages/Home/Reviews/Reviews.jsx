@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
-
+import Typewriter from "typewriter-effect";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -8,6 +8,17 @@ import "swiper/css/navigation";
 const Reviews = () => {
     return (
         <div>
+            <p className="mt-12 mb-10 text-6xl font-bold text-orange-600 mx-96">
+                <Typewriter
+                    options={{
+                        strings: [
+                            "Expert Reviews",
+                        ],
+                        autoStart: true,
+                        loop: true,
+                    }}
+                />
+            </p>
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper my-10">
                 <SwiperSlide>
                     <div className="w-1/2 text-center mx-auto">
