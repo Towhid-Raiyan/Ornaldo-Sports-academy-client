@@ -87,7 +87,7 @@ const ManageUsers = () => {
                                 <th>
                                     <button
                                         onClick={() => makeInstructor(data._id)}
-                                        className="btn btn-sm bg-bg-orange-700 text-white hover:bg-orange-500 me-2"
+                                        className="btn btn-sm bg-orange-700 text-white hover:bg-orange-500 me-2"
                                         disabled={
                                             data.role === "admin" ||
                                             data.role === "instructor"
