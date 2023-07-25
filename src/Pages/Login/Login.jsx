@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import Lottie from 'react-lottie';
 import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
-import animationData   from "../../assets/lottie/register.json";
+import animationData from "../../assets/lottie/register.json";
 import setTitle from '../../hook/setTitle';
 
 
@@ -16,13 +16,35 @@ const Login = () => {
     const location = useLocation();
     const from = location?.state?.from?.pathname || "/";
 
+    const storeNewUser = (newUser) => {
+        const user = {
+            name: newUser.displayName,
+            email: newUser.email,
+            image: newUser.photoURL,
+            role: "student",
+        };
+        fetch("https://ornaldo-sports-server.vercel.app/users", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(user),
+        }).then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    setStatus('New user Sign in Success!');
+                }
+            })
+    };
+
     const handleGoogleSignIn = () => {
         setStatus(null);
         setError(null);
         googleSignIn()
             .then((result) => {
                 setError(null);
-                setStatus("Sign In Successfull");
+                setStatus("Sign In Successful");
+                storeNewUser(result.user);
                 setUser(result.user);
                 navigate(from, { replace: true });
             })
@@ -55,9 +77,9 @@ const Login = () => {
         autoplay: true,
         animationData: animationData,
         rendererSettings: {
-          preserveAspectRatio: 'xMidYMid slice'
+            preserveAspectRatio: 'xMidYMid slice'
         }
-      };
+    };
     return (
         <div>
             <div className="hero min-h-screen bg-base-100">
@@ -97,7 +119,7 @@ const Login = () => {
                                     className="input input-bordered"
                                 />
                             </div>
-                            
+
                             <div className="text-center">
                                 {status ? (
                                     <p className="text-teal-600">{status}</p>
@@ -125,7 +147,7 @@ const Login = () => {
                                 </button>
                             </div>
                             <p className="text-md text-center">
-                               
+
                                 New here? Please{" "}
                                 <Link
                                     to={"/register"}
