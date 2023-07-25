@@ -9,6 +9,7 @@ import ManageUsers from "../Pages/Dashboard/Admin/ManageUser";
 import AddCourse from "../Pages/Dashboard/Instructor/AddCourse";
 import ViewCourses from "../Pages/Dashboard/Instructor/ViewCourses";
 import MakePayment from "../Pages/Dashboard/Payment/MakePayment";
+import PaymentHistory from "../Pages/Dashboard/Payment/PaymentHistory";
 import EnrolledClass from "../Pages/Dashboard/Student/EnrolledClass";
 import SelectedClass from "../Pages/Dashboard/Student/SelectedClass";
 import StudentDashboard from "../Pages/Dashboard/Student/StudentDashboard";
@@ -72,6 +73,14 @@ export const router = createBrowserRouter([
         path: "payment/:id",
         element: (<StudentRoute><MakePayment></MakePayment></StudentRoute>),
     },
+    {
+      path: "paymentHistory",
+      element: (
+          <StudentRoute>
+              <PaymentHistory></PaymentHistory>
+          </StudentRoute>
+      ),
+  },
 
       //Instructor
       {

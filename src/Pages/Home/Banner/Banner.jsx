@@ -12,7 +12,7 @@ const Banner = () => {
         <Carousel>
             <div>
                 <img src={pic1} />
-                <div className="absolute rounded-xl flex items-center h-full left-0  top-0 bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]">
+                <div className="rounded-xl flex items-center h-full left-0  top-0 bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]">
                     <div className='text-white space-y-7 w-1/2 ml-14'>
                         <h2 className='text-xl md:text-6xl font-bold text-start'>Look up, Get up, but Never give up!</h2>
                         <p className='text-start'>Our institution is very popular for kids sports training in the country. Providing quality service is our only goal. </p>
